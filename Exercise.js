@@ -1,45 +1,31 @@
-let person = [
-    { id: 1, name: "Alice", age: 28 }, 
-    { id: 2, name: "Bob", age: 22 },
-    { id: 3, name: "Charlie", age: 30 },
+let users = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" }
 ];
 
-function updatePerson(id, newData) {
-    for (let i = 0; i < person.length; i++) {
-        if (person[i].id === id) {
-            person[i] = { ...person[i], ...newData };
-            break;
-        }
-    }
-}
+let names = users.map(user => user.name);
+console.log(names);
 
-updatePerson(2, { name: "Robert", age: 26 });
+let people = [
+  { name: "Tom", age: 16 },
+  { name: "Jerry", age: 18 },
+  { name: "Spike", age: 22 }
+];
 
-console.log(person);
-
-
-function isValidPassword(password) {
-  const uppercase = password.match(/[A-Z]/g) || [];
-  const hasThreeUppercase = uppercase.length >= 3;
-  const hasDigit = /\d/.test(password);
-  const hasSymbol = /[_!?\*]/.test(password);
-
-  return hasThreeUppercase && hasDigit && hasSymbol;
-}
-
-
-console.log(isValidPassword("AB1!cD"));
-console.log(isValidPassword("abc123"));
-
-
-function areValuesUnique(array) {
-  return new Set(array).size === array.length;
-}
-
-
-console.log(areValuesUnique([1, 2, 3]));
-console.log(areValuesUnique([1, 2, 2, 3]));
+let adults = people.filter(person => person.age >= 18);
+console.log(adults);
 
 
 
+let people2 = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 32 },
+  { name: "Charlie", age: 29 }
+];
+
+let oldest = people2.reduce((max, person) => {
+  return person.age > max.age ? person : max;
+});
+
+console.log(oldest); 
 
